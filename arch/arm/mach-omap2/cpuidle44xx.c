@@ -653,6 +653,13 @@ void omap4_init_power_states(void)
 	omap4_power_states[OMAP4_STATE_C3].core_logic_state = PWRDM_POWER_RET;
 	omap4_power_states[OMAP4_STATE_C3].desc = "CPUs OFF, MPU + CORE CSWR";
 
+	/*
+<<<<<<< HEAD
+	 * C4 - CPU0 OFF + CPU1 OFF + MPU CSWR + CORE OSWR
+=======
+	 * C4 - CPU0 OFF + CPU1 OFF + MPU CSWR/OSWR + CORE OSWR
+>>>>>>> ca02895... Added kernel config option 'OMAP_C4_MPUOSWR'.
+	 */
 	omap4_power_states[OMAP4_STATE_C4].valid =
 			cpuidle_params_table[OMAP4_STATE_C4].valid;
 	omap4_power_states[OMAP4_STATE_C4].type = OMAP4_STATE_C4;
@@ -661,6 +668,13 @@ void omap4_init_power_states(void)
 	omap4_power_states[OMAP4_STATE_C4].target_residency =
 			cpuidle_params_table[OMAP4_STATE_C4].target_residency;
 	omap4_power_states[OMAP4_STATE_C4].mpu_state = PWRDM_POWER_RET;
+<<<<<<< HEAD
+	omap4_power_states[OMAP4_STATE_C4].mpu_logic_state = PWRDM_POWER_RET;
+	omap4_power_states[OMAP4_STATE_C4].core_state = PWRDM_POWER_RET;
+	omap4_power_states[OMAP4_STATE_C4].core_logic_state = PWRDM_POWER_OFF;
+	omap4_power_states[OMAP4_STATE_C4].desc =
+		"CPUs OFF, MPU CSWR + CORE OSWR";
+=======
 #ifdef CONFIG_OMAP_C4_MPUOSWR
 	omap4_power_states[OMAP4_STATE_C4].mpu_logic_state = PWRDM_POWER_OFF;
 #else
@@ -673,6 +687,7 @@ void omap4_init_power_states(void)
 #else
 	omap4_power_states[OMAP4_STATE_C4].desc = "CPUs OFF, MPU CSWR + CORE OSWR";
 #endif
+>>>>>>> ca02895... Added kernel config option 'OMAP_C4_MPUOSWR'.
 
 }
 
